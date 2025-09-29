@@ -8,6 +8,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MapView />} />
                 <Route path="/raster1" element={<Raster1 />} />
+                <Route path="/info" element={<Info />} />
             </Routes>
         </BrowserRouter>
     )
