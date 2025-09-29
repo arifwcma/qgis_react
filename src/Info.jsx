@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import WMSCapabilities from 'ol/format/WMSCapabilities'
+import WMSCapabilities from 'ol/format/WMSCapabilities.js'
+
+
 
 export default function Info() {
     const [layers, setLayers] = useState([])
