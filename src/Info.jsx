@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import WMSCapabilities from 'ol/format/WMSCapabilities.js'
 
-
+function flattenLayers(layers) {
+    let out = []
+    layers.forEach(l => {
+        if (l.Name) {
+            out.push({ name: l.Name, title: l.Title })
+        }
+        if (l.Layer) {
+            out = out.concat(flattenLayers(l.Layer))
+        }
+    })
+    return out
+}
 
 export default function Info() {
     const [layers, setLayers] = useState([])
@@ -12,11 +23,8 @@ export default function Info() {
             .then(text => {
                 const parser = new WMSCapabilities()
                 const result = parser.read(text)
-                const layerList = result.Capability.Layer.Layer.map(l => ({
-                    name: l.Name,
-                    title: l.Title
-                }))
-                setLayers(layerList)
+                const flat = flattenLayers(result.Capability.Layer.Layer)
+                setLayers(flat)
             })
     }, [])
 
