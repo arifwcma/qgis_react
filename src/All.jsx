@@ -27,7 +27,7 @@ export default function All() {
     }, [])
 
     return (
-        <MapContainer center={[20, 0]} zoom={2} style={{ height: '100vh', width: '100vw' }}>
+        <MapContainer center={[-37.047192, 142.778154]} zoom={13} style={{ height: '100vh', width: '100vw' }}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
             {/* rasters first */}
