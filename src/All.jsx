@@ -30,7 +30,10 @@ export default function All() {
         <MapContainer center={[-37.047192, 142.778154]} zoom={13} style={{ height: '100vh', width: '100vw' }}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-            {/* rasters first */}
+            {vectors.map((name, i) => (
+                <GeoJSONWrapper key={`v-${i}`} name={name} />
+            ))}
+
             {rasters.map((name, i) => (
                 <WMSTileLayer
                     key={`r-${i}`}
@@ -45,10 +48,6 @@ export default function All() {
                 />
             ))}
 
-            {/* vectors on top */}
-            {vectors.map((name, i) => (
-                <GeoJSONWrapper key={`v-${i}`} name={name} />
-            ))}
         </MapContainer>
     )
 }
