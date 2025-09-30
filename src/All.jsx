@@ -10,7 +10,7 @@ export default function All() {
 
     useEffect(() => {
         // GetCapabilities → decide raster vs vector
-        fetch('http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/qs_test_prizen/qs_test_prizen.qgs&SERVICE=WMS&REQUEST=GetCapabilities')
+        fetch('http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/flood_stawell/flood_stawell.qgs&SERVICE=WMS&REQUEST=GetCapabilities')
             .then(res => res.text())
             .then(text => {
                 const parser = new WMSCapabilities()
@@ -36,7 +36,7 @@ export default function All() {
                     key={`r-${i}`}
                     url="http://testpozi.online/cgi-bin/qgis_mapserv.fcgi"
                     params={{
-                        MAP: '/var/www/qgis_projects/qs_test_prizen/qs_test_prizen.qgs',
+                        MAP: '/var/www/qgis_projects/flood_stawell/flood_stawell.qgs',
                         layers: name,
                         format: 'image/png',
                         transparent: true,
@@ -57,7 +57,7 @@ function GeoJSONWrapper({ name }) {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        axios.get(`http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/qs_test_prizen/qs_test_prizen.qgs&SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=${name}&OUTPUTFORMAT=application/json`)
+        axios.get(`http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/flood_stawell/flood_stawell.qgs&SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=${name}&OUTPUTFORMAT=application/json`)
             .then(res => setData(res.data))
     }, [name])
 

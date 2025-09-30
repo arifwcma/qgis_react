@@ -7,7 +7,7 @@ export default function Info() {
     const [layers, setLayers] = useState([])
 
     useEffect(() => {
-        fetch('http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/qs_test_prizen/qs_test_prizen.qgs&SERVICE=WMS&REQUEST=GetCapabilities')
+        fetch('http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/flood_stawell/flood_stawell.qgs&SERVICE=WMS&REQUEST=GetCapabilities')
             .then(res => res.text())
             .then(text => {
                 const parser = new WMSCapabilities()

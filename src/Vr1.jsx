@@ -7,7 +7,7 @@ export default function Vr1() {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        axios.get('http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/qs_test_prizen/qs_test_prizen.qgs&SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=countries&OUTPUTFORMAT=application/json')
+        axios.get('http://testpozi.online/cgi-bin/qgis_mapserv.fcgi?MAP=/var/www/qgis_projects/flood_stawell/flood_stawell.qgs&SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=countries&OUTPUTFORMAT=application/json')
             .then(res => setData(res.data))
     }, [])
 
@@ -18,7 +18,7 @@ export default function Vr1() {
             <WMSTileLayer
                 url="http://testpozi.online/cgi-bin/qgis_mapserv.fcgi"
                 params={{
-                    MAP: '/var/www/qgis_projects/qs_test_prizen/qs_test_prizen.qgs',
+                    MAP: '/var/www/qgis_projects/flood_stawell/flood_stawell.qgs',
                     layers: 'sample',
                     format: 'image/png',
                     transparent: true,
