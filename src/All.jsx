@@ -61,5 +61,11 @@ function GeoJSONWrapper({ name }) {
             .then(res => setData(res.data))
     }, [name])
 
-    return data ? <GeoJSON data={data} /> : null
+    return data ? (
+        <GeoJSON
+            data={data}
+            style={{ color: 'black', weight: 1, fill: false }}
+        />
+    ) : null
+
 }
